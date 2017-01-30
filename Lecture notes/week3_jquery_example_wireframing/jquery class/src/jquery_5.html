@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!-- example 5 - Uncomment the code blocks at line 10 (jqueryUI reference),
+line 62 to initialize the button class, and line 97 to instantiate  the buttons. -->
+<head>
+<title>jQuery Introduction</title>
+<script type="text/javascript" src="jquery/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.bm_utils.js" title=""></script>
+
+<!-- 1. uncomment to activate jQueryUI library and related css file -->
+<!--
+<script type="text/javascript" src="jquery/jquery-ui-1.10.3.accordion_datepicker_dialog_menu.min.js"></script>
+<link href="css/jquery-ui-1.10.3.accordion_datepicker_dialog_menu_lightness.min.css" rel="stylesheet" type="text/css">
+-->
+<link href="css/jquery_intro.css" rel="stylesheet" type="text/css">
+<link type="image/x-icon" href="interface/bm.ico" rel="icon"/>
+</head>
+<script>
+		
+	loadTable=function(){
+		$.utils.loadFile("css/table.css","css");
+		psElement="#data-table-1-container";
+		psFile="content/data_table_1.html";
+		$( psElement ).load( psFile, function( response, status, xhr ) {
+			if (window.console){window.console.debug("loadTable status "+status)}
+			if ( status == "error" ) {
+				var msg = "There was an error loading file: ";
+				$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+			} else {
+				if (window.console){window.console.debug("loadTable status "+status)};
+				
+				$("#btn_hide-table").removeClass("invisible");
+				$("#btn_load-table").addClass("invisible");
+			}
+		});
+	}
+	
+	showTable=function(){
+		$("#btn_hide-table").removeClass("invisible");
+		$("#data-table-1").removeClass("invisible");
+		$("#btn_show-table").addClass("invisible");
+		$( "#data-table-1-container" ).animate({
+			opacity: 1.,
+			left: "-=50",
+			height: "toggle"
+			}, 2000, function() {
+				if (window.console){window.console.debug("showtable animation completed")};
+			});
+	}
+	hideTable=function(){
+		$("#btn_hide-table").addClass("invisible");
+		$("#btn_show-table").removeClass("invisible");
+		$( "#data-table-1-container" ).animate({
+			opacity: 0.25,
+			left: "+=50",
+			height: "toggle"
+			}, 2000, function() {
+				if (window.console){window.console.debug("hidetable animation completed")};
+			});
+	}
+	/* 2. Uncomment to use jQuery UI to initialize buttons and associated events in javascript */
+	/*
+	$(function() {
+		$( "#btn_load-table")
+			.button()
+			.click(function() {
+				loadTable();
+			});
+		$( "#btn_hide-table")
+			.button()
+			.click(function() {
+				hideTable();
+			});
+		$( "#btn_show-table")
+			.button()
+			.click(function() {
+				showTable();
+			});
+		
+	});
+	*/
+</script>
+<body>
+	<div id="content">
+		<legend>jQuery Examples - jQueryUI - Buttons</legend>
+		<article class="">
+			<header class="title"></header>
+			<address>
+			Written by <a href="http://www.brianmacmillan.com" target="_blank">Brian MacMillan</a> <span class="date small-font">(November 5, 2013)</span><br />
+			</address> 
+			<div class="linepadding">&nbsp;</div>
+			<div id="data-table-1-container"></div>
+			<div class="linepadding">&nbsp;</div>
+			<div id="error"></div>
+		</article>
+		<!-- 3. convert input boxes to buttons -->
+		<!--
+		<button id="btn_load-table" class="" type="button">Load Table</button>
+		<button id="btn_hide-table" class="invisible" type="button">Hide Table</button>
+		<button id="btn_show-table" class="invisible" type="button">Show Table</button>
+		-->
+	</div>
+</body>
+</html>

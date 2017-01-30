@@ -1,0 +1,13 @@
+/*
+Theme Name: My Theme
+Author: Owen Roberts
+Description: A basic starter theme for MMP350 portfolio project.
+*/
+$main-color: aliceblue;
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size:16px;
+    line-height:1.45;
+    background: $main-color;
+}

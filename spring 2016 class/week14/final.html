@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<title>MMP 350</title>
+	<meta charset="utf-8" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../slides/highlight/github-gist.css" type="text/css" />
+	<script src="../slides/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<link rel="stylesheet" href="../slides/slides.css" type="text/css" />
+	<script src="../slides/p5.min.js"></script>
+	<script src="../slides/bkg.js"></script>
+	<script src="../slides/slides.js"></script>
+</head>
+<body>
+	<div id="container" class="slides">
+		<div class="slide">
+			<h1>WordPress theme: theme branding and final template pages</h1>
+			<p><a href="https://github.com/owenroberts/mmp350">MMP 350</a> 
+            > <a href="https://github.com/owenroberts/mmp350/tree/master/week14/">Week 14</a></p>
+		</div>
+
+		
+		<div class="slide">
+			<p>Once each portfolio is finished, we can submit the template files as a WordPress theme to the <a href="https://wordpress.org/themes/" target="_blank">theme directory</a>.  The requirements for submitting a WordPress theme can be found <a href="https://codex.wordpress.org/Theme_Unit_Test" target="_blank">here</a>.  This is where other users can download and install themes to use on their own blogs.  In order to do this the themes have to have unique branding, including a <strong>favicon</strong> and a <strong>theme image</strong>.</p>
+		</div>
+
+		<div class="slide">
+			<p>The theme image can be created by making an image at 880 x 600 dimensions called <strong>screenshot.png</strong> and adding it to the root directory of you theme.  This should include the name of the theme, or a logo, or the developer name, or some visual representation of the theme itself like the color scheme or typography.</p>
+			<img src="imgs/theme.png">
+		</div>
+
+		<div class="slide">
+			<p>To create a favicon, make an image that is 16 x 16 pixels and save it as <strong>favicon.ico</strong>.  Add it to your theme and use the following line in the &lt;head&gt; section of your header.php file:</p>
+			<pre><code>&lt;link rel="shortcut icon" href="&lt;?php echo get_stylesheet_directory_uri(); ?&gt;/favicon.ico" /&gt;</code></pre>
+			<img src="imgs/tab.png">
+		</div>
+
+		<div class="slide">
+			<p>For the themes to work we also need to add a few extra template pages, which will be similar to pages we already have, including <strong>archive.php</strong>, <strong>404.php</strong> and <strong>search.php</strong>.  Archive might be based off of the <strong>category.php</strong> template.  Search and 404 could be based on <strong>index.php</strong> or <strong>single.php</strong>.</p>
+		</div>
+
+
+
+	</div>
+</body>
+</html>
+        

@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+	<title>MMP 350</title>
+	<meta charset="utf-8" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../slides/highlight/github-gist.css" type="text/css" />
+	<script src="../slides/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<link rel="stylesheet" href="../slides/slides.css" type="text/css" />
+	<script src="../slides/p5.min.js"></script>
+	<script src="../slides/bkg.js"></script>
+	<script src="../slides/slides.js"></script>
+</head>
+<body>
+	<div id="container" class="slides">
+		<div class="slide">
+			<h1>WordPress theme: WP loop & front-page.php</h1>
+			<p><a href="https://github.com/owenroberts/mmp350">MMP 350</a> > <a href="https://github.com/owenroberts/mmp350/tree/master/week11/">Week 11</a></p>
+		</div>
+        
+        <div class="slide">
+            <p>Today we’re going to go over the WordPress Loop, which is used to populate most of the content on our pages and posts, and creating a front page for the portfolio sites.</p>
+        </div>
+
+        <div class="slide">
+            <h2>The Loop</h2>
+            <p>We’ve looked at the loop in class already, but we’re going to talk about it in more detail.</p>
+            <p><a href="http://codex.wordpress.org/The_Loop">Here’s the WordPress explanation</a>.</p>
+            <p>The WordPress loop iterates through available content and makes it available to the&nbsp;template code. &nbsp;This makes it easy to customize the content we create in the WordPress CMS to fit our theme and design.</p>
+        </div>
+        <div class="slide">
+        <pre><code>&lt;?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?&gt;
+        //your posts content
+&lt;?php endwhile; else: ?&gt;
+    &lt;p&gt;&lt;?php _e('Sorry, no posts match your criteria.'); ?&gt;&lt;/p&gt;
+&lt;?php endif; ?&gt;</code></pre>
+        </div>
+        <div class="slide">
+            <p>The loop is a series of functions that determine whether there are any blog posts to display, and then uses different functions to get the content of those posts and display them, looping, or reusing the HTML tags that are created in the php page to structure that content.</p>
+        </div>
+
+        <div class="slide">
+            <h2>Loop template tags</h2>
+            <p>Template tags can be used only within the WordPress loop.  A few tags that may be useful on our blogs:</p>
+            <pre><code>&lt;?php the_excerpt(); ?&gt;
+&lt;?php the_content(); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>Most of the tags are self explanatory.  The excerpt is a short line or description of the post.  If there is no excerpt, WP fills in some text from the beginning of your post.</p>
+            <p><strong>the_content()</strong> is the content of the post/page, so any text, images or other media that are part of the body of an entry.</p>
+            <p>The content will typically go into a div or article.</p>
+        </div>
+        <div class="slide">
+            <p>Each post has an ID and a set of classes which can be referenced and used in HTML attributes:</p>
+            <pre><code>&lt;?php the_ID(); ?&gt;
+&lt;?php post_class(); ?&gt;
+&lt;article id="&lt;?php the_ID(); ?&gt;"  &lt;?php post_class(); ?&gt; &gt;</code></pre>
+
+        </div>
+        
+        <div class="slide">
+            <p><strong>the_author_posts_link()</strong> adds a link to all posts by the author. &nbsp;Your site will most likely have one author, but this will be useful for future projects or as an option on your theme.</p>
+            <pre><code>Posted by &lt;span class="author"&gt;?php the_author_posts_link(); ?&gt;&lt;/span&gt;</code></pre>
+        </div>
+        
+        <div class="slide">
+            <p>Tags are a great way to organize content. &nbsp;WP helps style the tag with arguments to determine&nbsp;how they are separated with HTML and text.</p>
+            <pre><code>&lt;?php the_tags(); ?&gt;
+&lt;?php the_tags( $before, $sep, $after ); ?&gt;
+&lt;?php the_tags( 'Tags: ', ", ", '&lt;br&gt;' ); ?&gt;
+&lt;?php the_tags( 'Tagged with: ', '&bull;', '&lt;br&gt;'); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>Categories can also take an argument for how the are separated.</p>
+            <pre><code>&lt;?php the_category(); ?&gt;
+&lt;?php the_category(', '); ?&gt;
+&lt;?php the_category('&bull;'); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p><strong>the_thumbnail() </strong>will show the featured image tagged in the post/page.</p>
+            <pre><code>&lt;?php the_post_thumbnail(); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>Thumbnails require an added line in <strong>functions.php</strong>:</p>
+            <pre><code>add_theme_support( 'post-thumbnails' );</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>Links to next/last post. &nbsp;Third argument is set TRUE to only let posts with same category, FALSE for another post/page to come up.</p>
+            <pre><code>&lt;?php previous_post_link('%link', '%title', TRUE); ?&gt;
+&lt;?php next_post_link('%link', '%title', TRUE); ?&gt;</code></pre>
+        </div>
+
+
+        <div class="slide">
+            <p>Okay, now that we have some new WP toys to play with, let’s build a front page.</p>
+            <p>Most of your portfolio designs require a homepage, either with a large image, some information or other design elements. &nbsp;Currently our sites all open up to blog posts. &nbsp;We can use <b>front-page.php</b> to create a separate page to appear at the index of the site.</p>
+            <p>Let’s look quickly at the&nbsp;WP <a href="http://codex.wordpress.org/Template_Hierarchy">template hierarchy</a>&nbsp;to understand how WP decides what page to load at the root of the site.</p>
+
+        </div>
+
+
+        <div class="slide">
+            <p>First, using the Dashboard, create a page called<strong> Front Page</strong> and a Page called <strong>Blog</strong>. Front Page will be the splash page of the portfolio, and blog will be the new page to display posts. &nbsp;We can leave them blank at first.</p>
+            <img src="imgs/page.png">
+        </div>
+
+
+        <div class="slide">
+            <p>Next go to Settings &gt; Reading and set the front page and posts page to Front Page and Blog.</p>
+            <img class="floated" src="imgs/settings.png">
+            <img class="floated" src="imgs/reading.png">
+        </div>
+
+        <div class="slide">
+            <p>Now we need to add Features posts to appear on the front page. &nbsp;Add a new Category called Featured. &nbsp;In All Posts, Quick Edit a couple of posts and add “Featured”.</p>
+            <p>Now for some PHP fun.</p>
+
+        </div>
+
+        <div class="slide">
+            <p>Go to your local WP files and duplicated index.php twice. &nbsp;Name one <strong>front-page.php</strong> and the other<strong> home.php</strong>.</p>
+            <img src="imgs/files.png">
+        </div>
+
+        <div class="slide">
+            <p>Both files will use the loop to display different content.</p>
+        </div>
+
+        <div class="slide">
+            <p>For the <strong>front-page.php</strong> we’re not going to use the title for the post, just the content.</p>
+            <pre><code>&lt;div class="front-page"&lt;
+    &lt;?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?&gt;
+        &lt;div class="intro"&gt;
+            &lt;?php the_content(); ?&gt;
+        &lt;/div&gt;
+    &lt;?php endwhile; else:&gt;
+        &lt;p&gt;Sorry, no posts match your criteria.&lt;/p&gt;
+    &lt;?php endif; ?&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>To limit it so that only Featured posts appear on the front page, so I’m going to make a custom query using <strong>WP_Query()</strong>. &nbsp;I’m going to create an argument for the query as a variable and save the result in another variable:</p>
+            <pre><code>&lt;?php 
+    $args = array('category_name' => 'Featured');
+    $featured = new WP_Query($args);
+?&gt;</code></pre>
+        </div>
+
+
+        <div class="slide">
+            <p>and feed that variable into my content loop:</p>
+            <pre><code>&lt;?php if ( have_posts() ) : while ( $featured->have_posts() ) : $featured->the_post(); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>I also need to add the function&nbsp;<strong>wp_reset_postdata()</strong> to reset my query for later loops.</p>
+            <pre><code>&lt;?php endif; wp_reset_postdata(); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <h2>Links</h2>
+            <p>I skipped comments because they probably won’t be necessary on portfolio sites. &nbsp;If you want to have comments check out this entry:&nbsp;<a href="http://codex.wordpress.org/Function_Reference/comments_template">Comments template</a>.</p>
+            <p><a href="https://codex.wordpress.org/Formatting_Date_and_Time">Date and time format</a>.</p>
+            <p><a href="http://codex.wordpress.org/Function_Reference/the_tags">Tags</a>.</p>
+            <p><a href="http://codex.wordpress.org/Function_Reference/the_author_posts_link">Author posts</a>.</p>
+        </div>
+       
+    </div>
+</body>
+</html>

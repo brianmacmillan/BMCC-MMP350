@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<title>MMP 350</title>
+	<meta charset="utf-8" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../slides/highlight/github-gist.css" type="text/css" />
+	<script src="../slides/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<link rel="stylesheet" href="../slides/slides.css" type="text/css" />
+	<script src="../slides/p5.min.js"></script>
+	<script src="../slides/bkg.js"></script>
+	<script src="../slides/slides.js"></script>
+</head>
+<body>
+	<div id="container" class="slides">
+		<div class="slide">
+			<h1>WordPress theme: image gallery</h1>
+			<p><a href="https://github.com/owenroberts/mmp350">MMP 350</a> 
+            > <a href="https://github.com/owenroberts/mmp350/tree/master/week13/">Week 13</a></p>
+		</div>
+
+		<div class="slide">
+			<p>Today we’re going to add a gallery with <a href="http://fancybox.net/">Fancybox</a> to the portfolio.</p>
+			<p><a href="http://wpmmp.bmcc.cuny.edu/~rowen/mmp350/wp-content/uploads/fancybox-example.zip">Fancy Box Example Code</a></p>
+			<p>This exampled was modified by Professor Stein from <a href="http://code.tutsplus.com/tutorials/add-a-responsive-lightbox-to-your-wordpress-theme--wp-28100">this tutorial</a>.</p>
+
+		</div>
+
+		<div class="slide">
+			<p>Start by adding the fancybox folder to your theme and update <strong>functions.php</strong> with the code found in the file that comes with the fancybox download:</p>
+			<img src="imgs/fancybox-1.jpg" >
+		</div>
+
+		<div class="slide">
+			<pre><code>function add_fancybox() {
+    wp_enqueue_script( 'fancybox-js', get_template_directory_uri() . '/fancybox/jquery.fancybox.pack.js', array( 'jquery' ), false, true );
+    wp_enqueue_style( 'fancybox-style', get_template_directory_uri() . '/fancybox/jquery.fancybox.css' );
+
+    //this is our code that sets up fancybox to use in WP
+    wp_enqueue_script( 'fancybox-wp-init', get_template_directory_uri() . '/fancybox/fancybox-wp-init.js', array( 'fancybox-js' ), false, true );
+
+    //this lets you see other images as thumbs
+    wp_enqueue_script( 'fancybox-thumbs', get_template_directory_uri() . '/fancybox/helpers/jquery.fancybox-thumbs.js', array( 'fancybox-js' ), false, true );
+    wp_enqueue_style( 'fancybox-style-thumbs', get_template_directory_uri() . '/fancybox/helpers/jquery.fancybox-thumbs.css', array('fancybox-style') );
+}
+add_action( 'wp_enqueue_scripts', 'add_fancybox' );</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>To load that code into the <strong>single.php</strong> template, add this line to the bottom of the page:</p>
+			<pre><code>&lt;?php wp_footer(); ?&gt;</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>Now we need to add an image gallery in the WordPress Dashboard.  Choose one of your project posts and then click <strong>Add Media:</strong></p>
+			<img src="imgs/gallery1.jpg" >
+		</div>
+
+		<div class="slide">
+			<p>Click <strong>Create Gallery</strong> and then choose the image you want to use in the gallery:</p>
+			<img src="imgs/gallery2.jpg" >
+		</div>
+
+		<div class="slide">
+			<p>In <strong>Edit Gallery</strong> change the order of images and write captions, also set the <strong>Link To</strong> attribute to "Media File":</p>
+			<img src="imgs/gallery3.jpg" >
+		</div>
+
+		<div class="slide">
+			<p>We can use the default classes and HTML structure created by the WordPress gallery to style the gallery, but first we need to turn off the default styles:</p>
+			<pre><code>add_filter( 'use_default_gallery_style', '__return_false' );</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>Then use the default CSS classes to your stylesheet:</p>
+			<pre><code>/* the entire gallery */
+.gallery {
+
+}
+/* each gallery item */
+.gallery-item {
+
+}
+/* each image */
+.gallery img {
+
+}
+/* each caption */
+.gallery-caption {
+
+}</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>To edit the CSS basics of the fancybox popout display, edit the original fancybox files:</p>
+			<img src="imgs/fancybox-2.jpg" >
+		</div>
+
+
+	</div>
+</body>
+</html>
+        

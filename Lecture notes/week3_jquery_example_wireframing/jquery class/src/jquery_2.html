@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!-- Example 2: dynamically loading a file. 1 step: uncomment code at line 16, below, to dynamically load a table -->
+<head>
+<title>JQuery Introduction</title>
+<script type="text/javascript" src="jquery/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="scripts/jquery_intro.js" title=""></script>
+<script type="text/javascript" src="scripts/jquery.bm_utils.js" title=""></script>
+<link href="css/jquery_intro.css" rel="stylesheet" type="text/css">
+<link type="image/x-icon" href="bm.ico" rel="icon"/>
+</head>
+<script>
+	$( "body" ).load(bodyLoad());
+	jQuery(document).ready(documentReady());
+	// 1. uncomment to dynamically load table
+	/*
+	loadTable=function(){
+		$.utils.loadFile("css/table.css","css");
+		psElement="#data-table-1-container";
+		psFile="content/data_table_1.html";
+		$( psElement ).load( psFile, function( response, status, xhr ) {
+			if (window.console){window.console.debug("loadTable status "+status)}
+			if ( status == "error" ) {
+				var msg = "There was an error loading file: ";
+				$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+			} else {
+				if (window.console){window.console.debug("loadTable status "+status)
+				$("table tr").on("click",function(){alert($(this).attr("class"))});
+				}
+			}
+		});
+	}
+	*/
+</script>
+<body>
+	<div id="content">
+		<legend>JQuery Examples - Dynamicaly Loading Files</legend>
+		<article class="">
+			<header class="title"></header>
+			<address>
+			Written by <a href="http://www.brianmacmillan.com" target="_blank">Brian MacMillan</a> <span class="date small-font">(November 5, 2013)</span><br />
+			</address> 
+			<div class="linepadding"></div>
+			<div id="data-table-1-container"></div>
+			<div class="linepadding"></div>
+			<div id="error"></div>
+		</article>
+		<input id="btn_load-table" class="" type="button" onclick="loadTable()" value="Load Table">
+	</div>
+</body>
+</html>

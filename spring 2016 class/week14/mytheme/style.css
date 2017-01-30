@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata|VT323|Bitter|Arvo);
+/*
+Theme Name: My Theme
+Author: Owen Roberts
+Description: A basic starter theme for MMP350 portfolio project.
+*/
+body { font-family: Helvetica, sans-serif; font-size: 16px; line-height: 1.45; background: aliceblue; }
+
+body { font-family: monospace; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+ul li a { text-decoration: none; }
+ul li a:hover { color: #3653e1; }
+
+a { color: #6e36e1; font-family: Helvetica, sans-serif; }
+
+.container { margin-top: 60px; }
+
+.column, #header { margin-bottom: 1.875rem; }
+
+.project { position: relative; }
+.project .label { display: none; position: absolute; top: 1.875rem; left: 1.875rem; color: white; font-size: 2em; }
+.project:hover .label { display: inline-block; }
+.project::after { position: absolute; bottom: 0; right: 1em; }
+
+.gallery::after { content: url(images/gallery.png); }
+.gallery .label { background-color: #3653e1; }
+
+.image::after { content: url(images/image.png); }
+.image .label { background-color: #6e36e1; }
+
+.video::after { content: url(images/video.png); }
+.video .label { background-color: #36a8e1; }
+
+.link .label { background-color: #183fff; }
+
+#sidebar li { list-style: none; }
+#sidebar h2 { border-bottom: 3px solid #3653e1; }
+#sidebar ul li { border-left: 0.25em solid #3653e1; padding-left: 0.5em; margin-top: 0.5em; }
+#sidebar ul li:hover { background: #36a8e1; }
+
+/* the entire gallery */
+/* each gallery item */
+.gallery-item { float: left; width: 40%; margin-left: 10%; }
+
+/* each image */
+/* each caption */
+.gallery-caption { border-left: 0.25em solid #3653e1; padding-left: 0.5em; margin-top: 0.5em; }

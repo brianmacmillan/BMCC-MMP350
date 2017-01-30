@@ -1,0 +1,47 @@
+$main-color: #3653e1;
+$second-color: adjust_hue($main-color, 30);
+$third-color: adjust_hue($main-color, -30);
+
+$link-color: $main-color;
+$main-font: Helvetica, sans-serif;
+
+body { 
+    color: $second-color;
+}
+a { color: $second-color; 
+font-family:$main-font;}
+
+#about {
+    border: 10px solid $third-color;
+	h1 {
+		font-family: $main-font;
+	}	
+	p {
+		font-family: Georgia, serif;
+	}
+	ul {
+		list-style: none;
+		li {
+			a {
+				text-decoration: none;
+				&:hover{
+					color: $link-color;
+				}
+			}
+		}
+	}
+}
+.show-for-small-only {
+	ul {
+		list-style: none;
+		li {
+			a {
+				font-size:2em;
+				font-family: $main-font;
+				&:hover{
+					color: $link-color;
+				}
+			}
+		}
+	}
+}

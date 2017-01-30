@@ -1,0 +1,13 @@
+/* table.css */
+table{border:1px solid black;border-spacing:0;}
+table tr {border: 0px solid transparent;}
+table td,table th {border:0px solid transparent;padding:5px 10px;text-align:left;}
+table tr.even{background-color:burlywood;color:white;}
+table tr.odd{background-color:white;}
+
+table tr:hover{cursor:pointer;background-color:salmon;}
+table tr.header{background-color:maroon;color:white;font-style:bold;border-bottom:1px solid black;}
+table tr.header:hover{cursor:default !important;color:white;background-color:maroon !important;}
+
+	
+	

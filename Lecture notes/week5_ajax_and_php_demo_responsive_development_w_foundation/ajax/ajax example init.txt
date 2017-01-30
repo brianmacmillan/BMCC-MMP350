@@ -1,0 +1,74 @@
+Here are three code samples
+
+1. Sample of an ajax call using jquery. Ajax allows asynchronous communication with a server. This example passes a list of variables in attribute value pairs (in data, below) to a php script called count or get points. The structure of data is attribute: value. The assumption is that the variables sFirst, sLast,iLimit are set already
+
+		var request = $.ajax({
+		url: "count_or_get_points.php",
+		type: "POST",
+		data: {first_name:sFirst,last_name:sLast,orderby:sOrderBy,asc:sASC,andor:sAndOr,like:bLike,cat1 : sCat1,cat2:sCat2,type1:sType1,type2:sType2,act1:sAct1,act2:sAct2,value1:sValue1,value2:sValue2,start_date:dStartDate,end_date:dEndDate,lng_lo:iLngLo,lng_hi:iLngHi,lat_lo:iLatLo,lat_hi:iLatHi,list:true},
+		dataType: "html"
+		});
+		//handle asynchronous response
+		request.done(function(msg) {
+			mbCancelEvent=false;
+			$("#dialog-progress").dialog("close");
+			if  (msg.substring(0,10)=="No results"){
+				document.getElementById("dialog-get-message-text").innerHTML=msg ;
+				$("#dialog-get-message").dialog("open");
+				return;
+			}
+			if (psSelection=="append"){
+				$("#"+SEL_NAV).find('option').append(msg);
+			} 
+			if (psSelection=="replace"){
+				$("#"+SEL_NAV).find('option').remove().end().append(msg); 
+			}
+			//msg is the name of the file that was just created.
+			//eg image+[timestamp].xml
+			initializeImageKmlLayer(IMAGE_LAYER_COUNT,msg);	
+		});
+		//handle failure
+		request.fail(function(jqXHR, msg) {
+			alert(msg);
+		});	
+		
+// Example two - the php script
+<?php
+session_start();
+$first='';
+//test for parameters and populate variables
+//in full version this will result in a sql script being created.
+if (isset($_REQUEST["first_name"])){
+	$first=$_REQUEST["first"]);
+}
+//... other tests for parms that leads to the creation of the SQL query named, for example,  $query
+// construct query using parms that have been received
+// note how php allows variables (eg $first) to be put with a string.
+$query="SELECT * FROM users WHERE first_name = '$first')";
+//login to mysql using a standard connection script to login into a sql session so that you can execute the query.
+include "config/login_parms.php";
+// execute the query using the $mysqli php library
+// and do stuff. 
+if ($result=$mysqli->query($query)) {
+		$sReturn=''; // initialize a variable to store the result
+		// pass result set into the associative array $row
+		while ($row = $result->fetch_array(MYSQLI_ASSOC)){
+			// populate the result variable with field data
+			$sResult.=$row['first_name'];
+		} // the while statement will automatically loop through the resultset
+		$result->free();  //drop the database connection
+		echo($sReturn); // The echo and/or print() functions populate msg in the ajax script above
+	}  else { 
+		echo "<br/><br/>Your query will return 0 rows.".$sSuffix; 
+	}
+?>
+
+3. Config script for creating a connection to mysql
+<?php
+//  parmeterss are domain, username, password and database
+$mysqli = @new mysqli('localhost', 'admin', 'admin', 'mydatabase');
+
+if ($mysqli->connect_errno) {
+    die('Connect Error in sambung_mysqli.php: ' . $mysqli->connect_errno);
+}
+?>

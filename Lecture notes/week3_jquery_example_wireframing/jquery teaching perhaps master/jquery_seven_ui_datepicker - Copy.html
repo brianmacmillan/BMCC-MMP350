@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JQuery Introduction</title>
+<script type="text/javascript" src="jquery/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="scripts/jquery_intro.js" title=""></script>
+<script type="text/javascript" src="scripts/jquery.utils.js" title=""></script>
+
+<script type="text/javascript" src="jquery/jquery-ui-1.10.3.accordion_datepicker_dialog_menu.min.js"></script>
+<link href="css/jquery-ui-1.10.3.accordion_datepicker_dialog_menu_lightness.min.css" rel="stylesheet" type="text/css">
+
+
+<link href="css/jquery_intro.css" rel="stylesheet" type="text/css">
+<link type="image/x-icon" href="bm.ico" rel="icon"/>
+</head>
+<script>
+	$( "body" ).load(bodyLoad());
+	
+	jQuery(document).ready(documentReady());
+	
+	loadTable=function(){
+		$.utils.loadFile("css/table.css","css");
+		psElement="#data-table-1-container";
+		psFile="content/data_table_1.html";
+		$( psElement ).load( psFile, function( response, status, xhr ) {
+			if (window.console){window.console.debug("loadTable status "+status)}
+			if ( status == "error" ) {
+				var msg = "There was an error loading file: ";
+				$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+			} else {
+				if (window.console){window.console.debug("loadTable status "+status)};
+				
+				$("table tr").on("click",function(){editRow(this)});
+				$("#btn_hide-table").removeClass("invisible");
+				$("#btn_load-table").addClass("invisible");
+			}
+		});
+	}
+	showTable=function(){
+		$("#btn_hide-table").removeClass("invisible");
+		$("#data-table-1").removeClass("invisible");
+		$("#btn_show-table").addClass("invisible");
+		alert("add animation instructions");
+	}
+	hideTable=function(){
+		//$("#data-table-1").addClass("invisible");
+		$("#btn_hide-table").addClass("invisible");
+		$("#btn_show-table").removeClass("invisible");
+
+		$( "#data-table-1" ).animate({
+		opacity: 0.25,
+		left: "+=50",
+		height: "toggle"
+		}, 5000, function() {
+			// Animation complete.
+		});
+	}
+	$(function() {
+		$( "#edit-form" ).dialog({
+			height: 800,
+			width:  640,
+			title: 'Select Filter',
+			autoOpen: false,
+			modal: true,
+			buttons: {
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				},
+				Close: function() {
+					$( this ).dialog( "close" );
+					update_table();
+				},
+			},
+			close: function() {
+				//allFields.val( "" ).removeClass( "ui-state-error" );
+			}
+		});
+	});
+	$(function() {
+		$( "#btn_load-table")
+			.button()
+			.click(function() {
+				loadTable();
+			});
+		$( "#btn_hide-table")
+			.button()
+			.click(function() {
+				hideTable();
+			});
+		$( "#btn_show-table")
+			.button()
+			.click(function() {
+				showTable();
+			});		
+	});
+
+	editRow=function(){
+		$( "#edit-form" ).dialog( "open" );
+	}
+</script>
+<body>
+	<div id="content">
+		<legend>JQuery Examples - UI Date Picker</legend>
+		<article class="">
+			<header class="title"></header>
+			<address>
+			Written by <a href="http://www.brianmacmillan.com" target="_blank">Brian MacMillan</a><span class="date small-font">(November 5, 2013)</span><br />
+			</address> 
+			<div class="linepadding">&nbsp;</div>
+			<div id="data-table-1-container"></div>
+			<div class="linepadding">&nbsp;</div>
+			<div id="error"></div>
+		</article>
+		<div id="edit-form">
+			<input type="text" id="first-name">
+			<input type="text" id="last-name">
+			<input type="text" id="email">
+			<input type="text" readonly id="dob">
+			<script> 
+				$("#dob").datepicker({ dateFormat: "yy-mm-dd" }); 
+			</script> 
+		</div>
+		<button id="btn_load-table" class="" type="button">Load Table</button>
+		<button id="btn_hide-table" class="invisible" type="button">Hide Table</button>
+		<button id="btn_show-table" class="invisible" type="button">Show Table</button>
+	</div>
+</body>
+</html>

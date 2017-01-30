@@ -1,0 +1,11 @@
+body{margin:0 0;padding:0;font-size:14pt;font-family:sans-serif;}
+body .invisible{display:none;}
+body #content{margin:auto;width:600px;padding-top:10px;text-align:center;}
+body .linepadding{line-height:24px;}
+	legend{font-size:24pt;}
+	article{padding:10px 0px;}
+	address{padding:10px 0px;}
+body #data-table-1-container{text-align:center;}
+body .inline-block{display:inline-block;}
+
+body div.ui-dialog input {margin-bottom:16px;margin-left:20px;}

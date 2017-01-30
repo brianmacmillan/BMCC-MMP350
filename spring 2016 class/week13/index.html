@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<title>MMP 350</title>
+	<meta charset="utf-8" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../slides/highlight/github-gist.css" type="text/css" />
+	<script src="../slides/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<link rel="stylesheet" href="../slides/slides.css" type="text/css" />
+	<script src="../slides/p5.min.js"></script>
+	<script src="../slides/bkg.js"></script>
+	<script src="../slides/slides.js"></script>
+</head>
+<body>
+	<div id="container" class="slides">
+		<div class="slide">
+			<h1>WordPress theme: widgets, sidebar.php</h1>
+			<p><a href="https://github.com/owenroberts/mmp350">MMP 350</a> 
+            > <a href="https://github.com/owenroberts/mmp350/tree/master/week13/">Week 13</a></p>
+		</div>
+
+		<div class="slide">
+			<p>Start by creating a blank document and title it <b>sidebar.php</b> and then add this:</p>
+			<pre><code>&lt;div id="sidebar"&gt;
+	&lt;?php dynamic_sidebar('Sidebar'); ?&gt;
+&lt;/div&gt;</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>This will import the sidebar from your Dashboard to wherever you place it.  Let’s add it to <strong>page.php:</strong></p>
+			<pre><code>&lt;?php get_header(); ?&gt;
+&lt;?php get_sidebar(); ?&gt;
+&lt;div class="page"&gt;</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>In <strong>functions.php</strong> we need to register the sidebar for WP Dashboard:</p>
+			<pre><code>$sidebar = array(
+  'name'        => 'Sidebar',
+  'id'          => 'sidebar',
+  'description' => 'Place widgets here.',
+);
+register_sidebar($sidebar);</code></pre>
+			<p>If needed, later multiple sidebars can be added.</p>
+		</div>
+
+		<div class="slide">
+			<p>Once <strong>functions.php</strong> is uploaded, widgets will appear in the menu.</p>
+			<img src="imgs/widgets.png">
+		</div>
+
+		<div class="slide">
+			<p>Then you can dynamically change what appears in the sidebar:</p>
+			<img src="imgs/widgets2.png">
+		</div>
+
+
+
+	</div>
+</body>
+</html>
+        

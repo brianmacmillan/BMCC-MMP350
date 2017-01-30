@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata|VT323|Bitter|Arvo);
+
+body { font-family: monospace; }
+ul { list-style:none;}
+
+.container {
+	margin-top:60px;
+}
+
+.column, #header {
+	margin-bottom: 1.875rem ;
+}
+
+a { 
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	color:darkblue;
+	text-decoration: underline;
+}
+.project {
+	position:relative;
+}
+.project .label {
+	display:none;
+	position:absolute;
+	top: 1.875rem;
+	left: 1.875rem;
+	width:100%;
+	color:white;
+	font-size:2em;
+}
+.project:hover .label {
+	display:inline-block;
+}
+
+#about h1 {
+	font-family: "Inconsolata", monospace;
+}
+#about p {
+	font-family: "VT323", monospace;
+	line-height: 1.25em;
+    letter-spacing: .001em;
+    word-spacing: .01em;
+}
+
+#arvo h1 {
+	font-family:"Arvo", sans-serif;
+}
+#arvo p {
+	font-family: "Bitter", serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

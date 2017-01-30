@@ -1,0 +1,2 @@
+- [Building a WP Theme: post formats](http://owenroberts.github.io/mmp350/week14/) 
+- [Building a WP Theme: theme branding and final template pages](http://owenroberts.github.io/mmp350/week14/final.html) 

@@ -1,0 +1,9 @@
+		var request = $.ajax({
+		url: "../teaching/javascript/log_event.php",
+		type: "POST",
+		data: {user_id : 1,browser: sBrowser,browser_version:sBrowserVersion,width:iWidth,height:iHeight},
+		dataType: "html"
+		});
+		request.done(function(msg) {
+			document.getElementById("server_message").innerHTML=msg;
+		});
