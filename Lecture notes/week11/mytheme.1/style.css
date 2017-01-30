@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata|VT323|Bitter|Arvo);
+/*
+Theme Name: My Theme
+Author: Owen Roberts
+Description: A basic starter theme for MMP350 portfolio project.
+*/
+body { font-family: Helvetica, sans-serif; font-size: 16px; line-height: 1.45; background: aliceblue; }
+
+body { font-family: monospace; }
+
+ul { list-style: none; }
+
+.container { margin-top: 60px; }
+
+.column, #header { margin-bottom: 1.875rem; }
+
+.project { position: relative; }
+.project .label { display: none; position: absolute; top: 1.875rem; left: 1.875rem; width: 100%; color: white; font-size: 2em; }
+.project:hover .label { display: inline-block; }

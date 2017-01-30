@@ -1,0 +1,79 @@
+/*
+Theme Name: My Theme
+Author: Owen Roberts
+Description: A basic starter theme for MMP350 portfolio project.
+*/
+$bkg-color: aliceblue;
+$main-color: #3653e1;
+$second-color: adjust_hue($main-color, 30);
+$third-color: adjust_hue($main-color, -30);
+$main-font: Helvetica, sans-serif;
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size:16px;
+    line-height:1.45;
+    background: $bkg-color;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Inconsolata|VT323|Bitter|Arvo);
+
+body { font-family: monospace; }
+ul { 
+	list-style:none;
+	padding:0;
+	margin:0;
+
+	li {
+		a {
+			text-decoration: none;
+			&:hover{
+				color: $main-color;
+			}
+		}
+	}
+}
+
+a { color: $second-color; 
+font-family:$main-font;}
+
+.container {
+	margin-top:60px;
+}
+
+.column, #header {
+	margin-bottom: 1.875rem ;
+}
+
+.project {
+	position:relative;
+	.label {
+		display:none;
+		position:absolute;
+		top: 1.875rem;
+		left: 1.875rem;
+		width:100%;
+		color:white;
+		font-size:2em;
+	}
+	&:hover .label {
+		display:inline-block;
+	}
+}
+
+#sidebar {
+	li {
+		list-style:none;
+	}
+	h2 {
+		border-bottom: 3px solid $main-color;
+	}
+	ul li {
+		border-left: 0.25em solid $main-color;
+		padding-left: 0.5em;
+		margin-top:0.5em;
+	}
+	ul li:hover {
+		background: $third-color;
+	}
+}

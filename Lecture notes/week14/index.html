@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+	<title>MMP 350</title>
+	<meta charset="utf-8" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../slides/highlight/github-gist.css" type="text/css" />
+	<script src="../slides/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<link rel="stylesheet" href="../slides/slides.css" type="text/css" />
+	<script src="../slides/p5.min.js"></script>
+	<script src="../slides/bkg.js"></script>
+	<script src="../slides/slides.js"></script>
+</head>
+<body>
+	<div id="container" class="slides">
+		<div class="slide">
+			<h1>WordPress theme: widgets, sidebar.php</h1>
+			<p><a href="https://github.com/owenroberts/mmp350">MMP 350</a> 
+            > <a href="https://github.com/owenroberts/mmp350/tree/master/week14/">Week 14</a></p>
+		</div>
+
+		<div class="slide">
+			<p>Post formats are used in WordPress to indicate different types of content.  Today we’ll look at adding post formats to our themes.  A good example of how you might use post formats is this screenshot of the theme <a href="https://wordpress.org/themes/flounder" target="_blank">Flounder</a>:</p>
+		</div>
+
+		<div class="slide">
+			<img src="imgs/flounder.png">
+		</div>
+
+		<div class="slide">
+			<p><a href="https://codex.wordpress.org/Post_Formats" target="_blank">Post formats</a> will usually require similar code to what is already being written in the template files, but allow for certain customizations.  WordPress has standard post formats that can be used, including: aside, gallery, image, link, quote, status, video, audio, chat.  Not all of them have to be used but this group cannot be added to.  We’ll look at creating custom posts for more customization next week.</p>
+		</div>
+
+		<div class="slide">
+			<p>To start creating post formats, add this line to <strong>functions.php</strong>, which will allow us to select post formats within the Dashboard post editor:</p>
+			<pre><code>add_theme_support( 'post-formats', array( 'gallery', 'image', 'video', 'link' ) );</code></pre>
+			<p>In this case I’m only using four of the possible post formats.</p>
+		</div>
+
+		<div class="slide">
+			<p>Once added, you will see a new widget in your post editor:</p>
+			<img src="imgs/formats.png">
+		</div>
+
+		<div class="slide">
+			<p>You can choose the type of post here.  Once you know what type of post you want to use, you can use the added WordPress code to change the style or functionality of the post.  Let’s add the post-format as a CSS class to each of the posts in the front page using the function <code>&lt;?php echo get_post_format(); ?&gt;</code>.</p>
+			<pre><code>&lt;div class="&lt;?php echo get_post_format(); ?> feature-post small-12 medium-4 large-4 columns"&gt;
+	&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;
+		&lt;?php the_post_thumbnail(); ?&gt;
+		&lt;div class="feature-title"&gt;
+			&lt;?php the_title(); ?&gt;
+		&lt;/div&gt;
+	&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+		</div>
+
+		<div class="slide">
+			<p>Then we can use the class to add new styles in CSS (in the SASS file):</p>
+			<pre><code>.image {
+  .feature-title {
+    background:rgba(adjust-hue($color, 60), 0.9);
+  }
+}
+.gallery {
+  .feature-title {
+    background:rgba(adjust-hue($color, 120), 0.9);
+  }
+}
+.link {
+  .feature-title {
+    background:rgba(adjust-hue($color, 180), 0.9);
+  }
+}
+.video {
+  .feature-title {
+    background:rgba(adjust-hue($color, 240), 0.9);
+  }
+}</code></pre>
+		</div>
+
+
+
+
+
+	</div>
+</body>
+</html>
+        

@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+<body>
+	<div><span>email:</span><span id="email"></span></div>
+	<div>email decoded: <input id="email-decoded" size="100"></div>
+</body>
+	<script>
+		var parm_list = window.location.toString();
+		alert("your parameter list is: "+parm_list);
+		var iStart = parm_list.indexOf("email=")+6;
+		var iEnd =  parm_list.indexOf("&",iStart);
+		var iLength = iEnd-iStart;
+		var email= parm_list.substr(iStart,iLength);
+		document.getElementById("email").innerHTML=email;
+		email = unescape(email);
+		document.getElementById("email-decoded").value=email;
+	</script>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<title>MMP 350</title>
+	<meta charset="utf-8" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../slides/highlight/github-gist.css" type="text/css" />
+	<script src="../slides/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<link rel="stylesheet" href="../slides/slides.css" type="text/css" />
+	<script src="../slides/p5.min.js"></script>
+	<script src="../slides/bkg.js"></script>
+	<script src="../slides/slides.js"></script>
+</head>
+<body>
+	<div id="container" class="slides">
+		<div class="slide">
+			<h1>WordPress theme: footer.php</h1>
+			<p><a href="https://github.com/owenroberts/mmp350">MMP 350</a> 
+            > <a href="https://github.com/owenroberts/mmp350/tree/master/week12/">Week 12</a></p>
+		</div>
+        
+        <div class="slide">
+            <p>You should have already set up <strong>footer.php</strong> which is accessed from <strong>front-page.php</strong> and other pages using:</p>
+            <pre><code>&lt;?php get_footer(); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>Inside the <strong>footer.php</strong> folder we need to add new menu for the footer links.  To do this we ahve to register two menus inside of <strong>functions.php</strong>:</p>
+            <pre><code>register_nav_menus( array (
+    "main-menu" =&gt; "Main Menu",
+    "footer-menu" =&gt; "Footer Menu"
+    )
+);</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>We can use the same function for the  Main Menu in <strong>header.php</strong> with some modifications:</p>
+            <pre><code>&lt;nav class="small-12 large-3 columns"&gt;
+    &lt;?php $footer_menu = array(
+        'theme_location' =&gt; 'footer-menu'
+        );
+    ?&gt;
+    &lt;?php wp_nav_menu($footer_menu); ?&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>To add a customizable logo, for now we can take advantage of the built in WordPress Header image by adding funcitonality to <strong>functions.php</strong>:</p>
+            <pre><code>$args = array(
+    'default-image' => get_template_directory_uri() . '/images/header.jpg',
+);
+add_theme_support( 'custom-header', $args );</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>This will create a new input in the <strong>Appearance</strong> menu, called Header.</p>
+            <img src="imgs/header.png">
+        </div>
+
+        <div class="slide">
+            <p>A user can now set the image, which we can use as a site wide logo, using the <code>header_image()</code> function:</p>
+            <pre><code>&lt;?php header_image(); ?&gt;</code></pre>
+        </div>
+
+        <div class="slide">
+            <p>We can set other attributes to modify the image, such as <code>width</code> and <code>height</code>:</p>
+            <pre><code>$args = array(
+    'width'         => 512,
+    'height'        => 512
+);</code></pre>
+            <p>At some point, we'll learn how to create our own customizations.  For now, check out <a href="https://codex.wordpress.org/Custom_Headers" target="blank">Custom Headers</a>.</p>
+        </div>
+
+    </div>
+</body>
+</html>

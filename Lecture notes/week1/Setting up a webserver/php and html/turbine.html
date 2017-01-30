@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- the DOCTYPE is specified at the beginning of your document so your browser knows the type of document contained in the file. For HTML 5 you simply specify !Doctyp
+-->
+<head>
+<!-- the comment tag is an angle bracket followed by 
+<!-- head is the place where external files are loaded, for example javascript files for programming and css files for formating.
+head is also where meta tags go.
+-->
+<link type="text/css" rel="stylesheet" href="turin.css">
+<script id="core javascript for ff" title="main" src="javascript/ff_main.js" type="text/javascript">
+</head>
+<body>
+	<!-- body contains your main document -->
+	<!-- documents are comprised of elements, which contain data and attributes -->
+	<!-- most elements contain a starting tag and a closing/ending tag
+	<!-- the space between a starting and closing tag can contain display text or other ( elements. The text
+	is often referred to as the innerHTML property of the element. An element contained within an element is consider nested.  -->
+	<div><span onclick="showInnerHtml(this);">This innerHTML property is contained with a span element nested within a div element </span</div>
+	
+	<div>Divs can contain blocks of elements.</div>
+	<div>The space between div opening and closing info can contain text.This text will display in a browser and is the innerHTML property of the div element</div>
+	<span>Spans contain inline elements</span><span>Second inline element</span>
+	<table>
+		<th><td>table header</td></th>
+		<tr><td>TR element contains rows.</td><td>tds are cells</td></tr>
+	</table>
+	<!-- entities are used to display characters that are part of html markup for example angle brackets and ampersands &amp; and quotes &quot;
+	entities can also be used to display foreign language characters -->
+	<!-- elements can contain attributes that have special characteristics. The id and name attributes are used to uniquely identify an element. The class attribute is used to format it. -->
+	<div class='red'>The class attribute contains formating instructions that are interpreted by a style sheet to alter the display (rendering) of the html document</div>
+	<div><span id='test-element'>Elements have events like onclick</span><span onclick="hide('test-element')">Hide</span><span onclick="show('test-element');">Show</span></div>
+</body>
+</html>

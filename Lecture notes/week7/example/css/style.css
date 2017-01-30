@@ -1,0 +1,40 @@
+/* line 8, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+body {
+  color: #6f36e1; }
+
+/* line 11, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+a {
+  color: #6f36e1;
+  font-family: Helvetica, sans-serif; }
+
+/* line 14, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+#about {
+  border: 10px solid #36a8e1; }
+  /* line 16, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+  #about h1 {
+    font-family: Helvetica, sans-serif; }
+  /* line 19, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+  #about p {
+    font-family: Georgia, serif; }
+  /* line 22, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+  #about ul {
+    list-style: none; }
+    /* line 25, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+    #about ul li a {
+      text-decoration: none; }
+      /* line 27, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+      #about ul li a:hover {
+        color: #3653e1; }
+
+/* line 35, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+.show-for-small-only ul {
+  list-style: none; }
+  /* line 38, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+  .show-for-small-only ul li a {
+    font-size: 2em;
+    font-family: Helvetica, sans-serif; }
+    /* line 41, /Users/oroberts/Desktop/mmp350/week7/example/css/style.scss */
+    .show-for-small-only ul li a:hover {
+      color: #3653e1; }
+
+/*# sourceMappingURL=style.css.map */

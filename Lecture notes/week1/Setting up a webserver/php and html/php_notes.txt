@@ -1,0 +1,53 @@
+Summary of PHP and Ajax Discussion
+Communication between client and server
+We are using a three tier model: a desktop client running javascript, a middle tier, in this case php, running on an apache web server, and a backend, the database management system mysql.
+HTTP Communication
+Original web architecture involves a submit from a form. When the submit happens data is transferred to the middle tier via a get or post message using the following format
+[domain name][folder][middleware script, eg a php script, an ASP or JSP page][parameters]
+An example of this is:
+http://brianmacmillan.com/scripts/myscript.php?arg1=param1&arg2=param1
+In a traditional system the parameter list is populated based on the values of the input controls contained in the form. The attribute part of the list is derived from the name of the input element.
+GET and POST
+There are two ways of communicating in http, via a GET and a POST. Read the following links - they summarize the idiosyncracies of both.
+http://www.w3schools.com/tags/ref_httpmethods.asp
+In php data from a GET is received by the $_GET object; data from a $_POST is received by a $_POST object. The $_REQUEST object queries both GET and POST objects, which is why I recommend you use it. It allows you to make your code more generic.
+
+$_SESSION object
+You may choose to use one other object, the $_SESSION object. Because php scripts are often called in isolation to perform one task there is a need for one script to be able to communicate with another. This is typically done through the $_SESSION object. Its most common use is to store credentials, eg username and authorization information. It is typical for all php scripts to query for authentication and do a redirect in the event that a user is not authorized. This is to prevent users from accessing your scripts directly with a URL instead of via a webpage, where you have more control. 
+For example: 
+if (!isset([$_SESSION['user_credentials'])){ 
+	// redirect to login screen
+	return;
+}
+The $_SESSION object is set as follows
+$_SESSION['user_credentials'] = [value];
+user_credentials is a name that is assigned by the developer. [value] could be a variable, string literal (eg. "admin") or number.
+
+Ajax
+Ajax is a javascript technology designed to allow for asynchronous communication with the server, typically through php, ASP or java. Asynchronicity is important because javascript is synchronous (as opposed to multi-threaded) so it functions linearly. As a result a failed request in javascript can hang your whole system. Ajax reduces issues with this. It doesn't eliminate them - it just makes error handling easier.
+
+There are several ajax libraries that can be used. In your project you are using the jQuery ajax library, which is accessed through the function call $.ajax(); The $ is an alias to the jQuery object, which gets created when jQuery is referenced in the head section of an html document. ajax() is a method of the jQuery object.
+The ajax method has several important components. Let's start with the assignment variable. In your code the main call is structured as follows:
+var response = $.ajax({});
+In this call calling the ajax function instantiates the object variable named response. The variable name "response" can be any valid javascript variable name.
+Why is the data passed to ajax (and other jQuery functions) in braces {}?
+When I was first learning jQuery I was a little mystified by its syntax. The thing to remember is that all activity in jQuery involves a function call to jQuery ($) and its publicly exposed methods, like ajax(). As a result things like the setting of properties and the execution of methods within the jQuery object are done indirectly, in this case via an array of key value pairs contained in braces{}. 
+Here is a decent discussion of this issue:
+http://davidwalsh.name/javascript-arrays-brackets-braces
+
+For your project there are three aspects of ajax() that matter:
+1. data: this is a series of attribute/key value pairs that corresponds directly to the name and value attributes of an input object within an html input element. Notice that these data values are contained in braces {} as well. 
+2. request - note that the instantiation of the response variable turns it into an object with two methods, done and fail.
+3. done
+what happens when a post is completed
+4. fail
+executed when a post fails
+There are other methods as well, that can, for example, do things like create progress bars during a post
+
+A final note. Because of the way ajax is structured it liberates you from the form / submit architecture of a traditional webpage, which dramatically increases the flexibility of a web page in the sense that any object can trigger a submit; and any variable or element can contain attribute/value data, not just input elements within a form. Be aware that if you choose to NOT use the submit button within ajax, conflicts can occur if you have a submit button and a form. As a result I never use forms in my code. I'm not certain, however, whether this is considered good or bad practice. I simply like the flexibility.
+
+Further reading
+http://learn.jquery.com/about-jquery/how-jquery-works/
+http://en.wikipedia.org/wiki/Callback_%28computer_programming%29
+
+
