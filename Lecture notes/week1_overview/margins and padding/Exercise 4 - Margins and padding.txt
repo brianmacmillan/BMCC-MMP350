@@ -1,0 +1,98 @@
+Exercise 4 - Margins and Padding
+Goal
+To demonstrate the difference between margins and padding
+
+1. Create the following document called padding_and_margins.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Padding and Margins Example</title>
+    <link href="style_margins_and_padding.css" rel="stylesheet">
+</head>
+<body>
+<section>
+	<h2>Padding and Margin Example</h2>
+	<div id="outer" class="border">Outer
+		<div id="middle" class="border">Middle
+			<div id="inner" clsas="border">Inner</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
+
+2. In the same folder create a file called style_margins_and_padding.css
+#outer{border:2px solid blue;}
+#middle{border:2px solid red;}
+#inner{border:2px solid green;}
+
+
+img - its a mess!
+
+3. Add the following style to the #inner element
+
+#inner{border:2px solid green;margin:10px 10px 10px 10px}
+
+Q: What happened?
+A: The space around the top, right, left and bottom of the element got a margin of 10 pixels
+
+4. Add the following style to the #middle element
+
+#middle{border:2px solid red;margin:10px 10px;}
+
+Q: What happened?
+A: The space around the top, right, left and bottom of the element got a margin of 10 pixels
+
+5. Add the following style to the #outer element
+
+#outer{border:2px solid blue;margin:10px;}
+
+Q: What happened?
+A: The space around the top, right, left and bottom of the element got a margin of 10 pixels
+
+6. Change the styling associated the #inner element to the following:
+
+#inner{border:2px solid green;margin:10px 20px 30px 40px;}
+
+Q: What happened?
+A: The top of the element got 10 pixels of space added outside, the right of the element got 20px of space added outside the element, the bottom of the element got 30px of space added below it, and 40px of space was added to the left of the element.
+
+
+7. Change the styling associated the #inner element to the following:
+
+#inner{border:2px solid green;margin:10px;padding:10px}
+
+Q: What happened?
+A: 20px of space added around the outside of the element (armgin), 10px of space added within the element (padding).
+
+8. Change the style for #outer as follows:
+
+#outer{border:2px solid blue;margin:-50px 10px 10px 10px;}
+
+Q: What happened?
+A: div#outer moved up by 50 pixels because it has a negative margin.
+
+9. Make #outer position fixed, relative and asbolute
+
+Q: What happened? Nothing except with position: fixed the width of the element shrunk based on text side, instead of defaulting to screen width;
+
+10. Make all three elements position:fixed
+
+#outer{position:fixed;border:2px solid blue;margin:0px 10px 10px 10px;}
+#middle{position:fixed;border:2px solid red;margin:10px 10px;}
+#inner{position:fixed;border:2px solid green;margin:10px;padding:10px}
+
+Q: What happened?
+A: Because all three elements are no longer in the document flow they are no longer nested. The point of this example is that properties like position and margin interfact with each other.
+
+
+
+
+
+
+
+
+
+

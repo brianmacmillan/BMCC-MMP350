@@ -1,0 +1,18 @@
+body{height:1100px;border: 1px solid transparent;}
+
+/* Step 3 */
+.myheader{position:fixed;}
+
+/* Step 4 */
+.myfooter{position:fixed;bottom:10px;} 
+
+/* Step 5 */
+.myfooter{position:absolute;bottom:10px;} 
+
+.pr{position:relative;}
+
+/* Step 10 */
+section div {display:inline-block;}
+
+/* Step 11 */
+.red{color:red}

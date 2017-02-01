@@ -1,0 +1,20 @@
+/* START
+#outer{border:2px solid blue;}
+#middle{border:2px solid red;}
+#inner{border:2px solid green;}
+*/
+/* STEP THREE 
+/*
+#outer{border:2px solid blue;}
+#middle{border:2px solid red;}
+#inner{border:2px solid green;margin:10px 10px 10px 10px}
+*/
+/*
+#outer{position:fixed;border:2px solid blue;margin:0px 10px 10px 10px;}
+#middle{position:fixed;border:2px solid red;margin:10px 10px;}
+#inner{position:fixed;border:2px solid green;margin:10px;padding:10px}
+*/
+/*Step 10 */
+#outer{position:fixed;border:2px solid blue;margin:10px;}
+#middle{position:fixed;border:2px solid red;margin:10px;}
+#inner{position:fixed;border:2px solid green;margin:10px;}

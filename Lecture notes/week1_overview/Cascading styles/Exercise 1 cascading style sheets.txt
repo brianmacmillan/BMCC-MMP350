@@ -1,0 +1,133 @@
+Exercise 1
+Purpose
+To demonstrate in a very simple fashion how cascading style sheets handle conflicts between elements, classes and element ids.
+To introduce students to some useful selection tips
+
+Concepts
+Inheritance / cascading styles
+Serif and sans serif fonts. Sans-serif fonts are characterized by even line weights. They are typically used for headlines. Examples are Helvetica and Arial. Serif fonts have uneven stroke widths, characterized by serifs (nodes) at the end of strokes. They are typically used for body text because the serifs make the characters easier to read. Common examples are Times Roman and Booker.
+
+1. Create a folder called Exercise 1
+2. Open a browser in Private Browsing / Incognito mode. 
+This is done to avoid caching issues by the browser.
+
+3. Create a file called html_cascading with the following attributes
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple Cascading Example</title>
+    <link href="style_cascading.css" rel="stylesheet">
+</head>
+<body>
+	<div id="main">
+		<header class="header">Header</header>
+		<section>
+			<p class=“body-text”>Paragraph One</p>
+			<p class=“”>Paragraph Two</p>
+			<p class=“”>Paragraph Three</p>
+			<p id="last-paragraph" class=“”>Paragraph Four</p>
+			<div id="child-container" class="child-text">
+				<p class="">Child paragraph</p>
+				<div>
+					<p id="grandchild">Grandchild paragraph</p>
+				</div>
+			</div>
+		</section>
+		<footer>Footer</footer>
+	</div>
+</body>
+</html>
+
+4. Create a file called style_cascading with the following content:
+
+body {color:red;margin:0;padding:0;font-size:11pt;font-family:sans-serif;}
+.child-text{color:black;}
+
+Why is all the text black except for 
+
+5. Add the following to your style sheet.
+
+p{font-family:serif;}
+
+Notice that all of the p elements are now in a sans-serif font.
+
+6. Make the font family for child text sans-serif
+
+.child-text{color:black;font-family:sans-serif;}
+
+Q: Why did the child and grandchild paragraphs not change?
+A: In css styling conflicts are resolved from the most general to the most specific. In this case the style information inherited from div#child-container was overridden by the default styling set in body
+
+7. Now add the child-text class to the Child paragraph and the Grandchild paragraph
+
+	<div id="child-container" class="child-text">
+		<p class="child-text">Child Paragraph</p>
+		<div>
+			<p id="grandchild" class="child-text">Grandchild Paragraph</p>
+		</div>
+	</div>
+
+Q: Why did the child and grandchild paragraphs become sans-serif?
+A: Because the child-text class was added to the paragraph, making it the most specific styling for the element
+
+8. Now add the following to the bottom of your css file:
+
+#grandchild{font-family:serif;}
+
+The file should look like the following
+
+// add image here.
+
+
+There are now two conflicting styles applied to the grandchild element, one applied via the classname child-text, the other applied via the element id styling #grandchild{font-family:serif;}
+
+Q: Why did the grandchild element become sans-serif?
+A: Because the id style is the more specific
+
+
+9. Now add a second class to the grandchild in the html document
+
+<div>
+	<p id="grandchild" class="child-text quote">Grandchild</p>
+</div>
+
+.. and add a class definition to the style sheet:
+
+.quote{margin:20px} 
+
+Note how two different classes can be applied to the same element. But what happens when there is a conflict?
+
+10. Modify the .quote class as follows:
+
+.quote{margin:20px;font-style:italic;color:purple;}
+
+There is now a clash between the two classes. The .child-text class specifies a color of red and the .quote class specifies a color of purple. Which one wins? That depends on the position of the two classes in the file.
+
+11. Change the position of the two classes in your css file:
+
+.child-text{color:black;font-family:sans-serif;}
+.quote{margin:20px;font-style:italic;color:purple;}
+
+and 
+
+.quote{margin:20px;font-style:italic;color:purple;}
+.child-text{color:black;font-family:sans-serif;}
+
+12. Make Grandchild sans-serif.
+
+This is trickier than it sounds because there are now three different stylings applied to the grandchild paragraph font-family, with body, .child-text and #grandchild styles.  Deciding which solution to use has consequences.
+
+
+
+
+
+#first-paragraph{font-family:sans-serif;font-size:20pt;font-weight:normal;}
+body  div {background-color: salmon;}
+body > div {background-color: yellow;}
+
+
+
+
+

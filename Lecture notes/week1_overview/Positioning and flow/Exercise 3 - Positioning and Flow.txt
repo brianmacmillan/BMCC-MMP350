@@ -1,0 +1,152 @@
+Exercise 3 - Positioning and flow
+Goals
+To demonstrate the difference between fixed, absolute, floating and static positioning
+To demonstrate the difference between inline, block and inline-block styles
+
+1. Create a document called positioning_demo.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Positioning Example</title>
+    <link href="style_positioning.css" rel="stylesheet">
+</head>
+<body>
+<header class="myheader">This is a header.</header>
+<h2>Position Static and Position Relative</h2>
+<section id="s1">
+	<div>These divs</divs>
+	<div>have no positioning information</div>
+	<div>so default to position static. This means they render basedon their position in the document flow.</div>
+</section>
+
+<section id="s2">
+	<div class="pr">When these divs</div>
+	<div class="pr">are 
+		<span class="red">position relative</span>, they align relative to their parent container, in this case section.s2.
+	</div>
+</section>
+<footer class="myfooter">This is a footer.</footer>
+</body>
+</html>
+
+
+2. Create a style sheet called style_positioning.css and save it to the same location as positioning_demo.html
+
+body{height:1100px;border: 1px solid red;}
+
+View the results in a browser
+
+3. Make the header fixed by adding the following class to your style sheet
+
+.myheader{position:fixed;}
+
+Scroll up and down to see the results of your change.
+
+
+4. Position the footer at the bottom of the screen by adding the following to the css:
+
+.myfooter{position:fixed;bottom:10px;} 
+
+5. Now give the footer an absolute position:
+
+
+Scroll up and down to see the results of your change.
+
+.myfooter{position:absolute;bottom:10px;} 
+
+Q: The footer looks like its positioned the same as with position fixed, except that it behaves differently when you scroll. Describe this difference
+
+A: The element has been moved to the bottom of the document, but it flows with the document. Fixed elements do not flow with the document.
+
+
+6. Position static and relative 
+
+Add the following class to the style sheet
+
+.pr{position:relative;}
+
+This styling with be will be applied to the first and second divs of the section section:
+<section>
+	<div class="pr">These divs</div>
+	<div class="pr">are 
+		<span class="red">position relative</span>, so are aligned relative to the parent container
+	</div>
+</section>
+
+Refresh your screen. Nothing should happen. Making the above two divs position:relative renders the document no differently than before when they defaulted to position:static.
+
+8. Now add the following to the .pr class
+
+.pr{position:relative;left:100px}
+
+When you refresh the two <div> with the .pr class move to the left by 100px.
+Q: what are the div.pr elements moving left relative to?
+A: Their parent container. Demonstrate this using margins and borders.
+
+8. Now change the .pr class style as follows:
+
+.pr{position:static;left:100px}
+
+Q: Why did the two div.pr elements stop indenting?
+A: Because static elements do not have a left, right, top or bottom property. They simple flow in the document.
+
+
+9. Block, Inline and Inline-Block
+Look at the rendered version of the document and then its source, focusing on the two sections. Notice how the document has line breaks whereever there are <divs> and how it doesn't when there are <spans>. That is because <divs> are block elements and <spans> are inline elements.
+
+
+section div {display:inline-block}
+
+What happened? The breaks associated with divs are gone and the divs are acting line inline elements
+
+10. Setting height and line height to show the difference between inline-block and inline.
+
+Spans are inline elements. Add the following styling so we can easily see the spans
+
+.red{color:red}
+
+11. Set the line-height of the spans
+
+span {line-height: 68px;}
+
+12. Try to set the height property
+
+span {height: 68px;}
+
+Q: Height is ignored. Why? 
+A: Inline elements do not have a height property
+
+13. Make the spans block elements:
+
+span {display:block;height: 68px;}
+
+When the span is made into a block element it gets a height property. 
+
+14. What is the difference between height and inline height?
+
+Give your spans a border and then view them first with line-height set and then with height property set (not both at the same time)
+
+span {display:block;line-height: 68px;border:1px solid purple;}
+
+span {display:block;height: 68px;border:1px solid purple;}
+
+
+Q: How does the text position change based on height and line-height properties?
+A: Text is centered based on line-height and top-aligned based on height.
+
+15. Extra work
+
+Make the div.pr elements inline-block and play with both their line-height and height properties simultaneously to see what happens.
+
+
+
+
+
+
+
+
+
+
+

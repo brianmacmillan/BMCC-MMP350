@@ -1,0 +1,7 @@
+body {color:red;margin:0;padding:0;font-size:12pt;font-family:sans-serif !important;}
+#main{margin:10px;}
+p{font-family:serif;}
+#grandchild{font-family:serif;}
+.child-text{color:black;font-family:sans-serif;}
+.quote{margin:20px;font-style:italic;color:purple;}
+

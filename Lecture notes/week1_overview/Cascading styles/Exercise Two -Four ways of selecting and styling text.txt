@@ -1,0 +1,78 @@
+Exercise Two: Four ways of selecting
+
+CSS has many useful tools to allow you to apply styles to object hierarchies.
+
+1. Create a document called exercise_2.html with the following content
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple Cascading Example</title>
+    <link href="style_selection.css" rel="stylesheet">
+</head>
+<body>
+	<div id="main">
+		<header class="header">Header</header>
+		<section>
+			<p class=“body-text”>Paragraph One</p>
+			<p class=“”>Paragraph Two</p>
+			<p class=“”>Paragraph Three</p>
+			<p id="last-paragraph" class=“”>Paragraph Four</p>
+			<div id="child-container" class="child-text">
+				<p class="child-text">Child paragraph</p>
+				<div>
+					<p id="grandchild" class="child-text quote">Grandchild paragraph</p>
+				</div>
+			</div>
+		</section>
+		<footer>Footer</footer>
+	</div>
+</body>
+</html>
+
+2. Create a style sheet called style_selection.css in the same folder as your html document. 
+
+body {color:red;margin:0;padding:0;font-size:12pt;font-family:sans-serif !important;}
+#main{margin:10px;}
+
+Save and view the file.
+
+3. Add the following to your css file
+
+section p {color: blue;}
+
+All paragraphs that are children of <section> turn blue.
+
+3. Change the styling as follows:
+
+section > p {color: blue;}
+
+Q: What has happened?
+A: Only the immediate children of <section> have the styling applied.
+
+3. Add the following to the bottom of your file:
+
+section p:first-child{color: green;}
+
+Q: Why did 3 paragraphs turn green?
+A: Paragraph One, Child Paragraph and Grandchild Paragraph are all first children.
+
+
+:first-child is known as a psuedo class. There are a number of them including :hover, :before, :after, :first-letter and :first line 
+
+4. Change what you just types as follows:
+
+section > p:first-child{color: green;}
+
+Q: Why did only the first paragraph turn green?
+
+The > operator selects the immediate children of the parent elements <section> and only applies its styling rules to those elements.
+
+
+5. Add the following
+section > p:first-child:first-letter{font-weight:bold}
+
+Notice that pseudo classes can be added together.
+
+

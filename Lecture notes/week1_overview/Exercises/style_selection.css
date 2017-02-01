@@ -1,0 +1,16 @@
+/* Start */
+body {color:red;margin:0;padding:0;font-size:12pt;font-family:sans-serif !important;}
+#main{margin:10px;}
+
+
+/* Step 3 
+/*
+section p {color: blue;}
+*/
+
+/* Step 4 */
+/*
+section > p {color: blue;}
+*/
+/* Step 5 */
+section p:first-child{color: green;}

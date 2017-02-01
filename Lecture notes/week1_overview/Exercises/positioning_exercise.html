@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Positioning Example</title>
+    <link href="style_positioning.css" rel="stylesheet">
+</head>
+<body>
+<header class="myheader">This is a header.</header>
+<h2>Position Static and Position Relative</h2>
+<section id="s1">
+	<div>These divs</divs>
+	<div>have no positioning information</div>
+	<div>so default to position static. This means they render basedon their position in the document flow.</div>
+</section>
+
+<section id="s2">
+	<div class="pr">When these divs</div>
+	<div class="pr">are 
+		<span class="red">position relative</span>, they align relative to their parent container, in this case section.s2.
+	</div>
+</section>
+<footer class="myfooter">This is a footer.</footer>
+</body>
+</html>

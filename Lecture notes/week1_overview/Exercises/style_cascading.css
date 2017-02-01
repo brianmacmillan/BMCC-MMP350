@@ -1,0 +1,9 @@
+/* Initial setting  */
+html{margin:10px;}
+body {color:red;margin:0;padding:0;font-size:36pt;font-family:sans-serif;}
+.child-text{color:black;}
+
+/* step 5 */
+p{font-family:serif;}
+/* step 6 */
+.child-text{color:black;font-family:sans-serif;}
