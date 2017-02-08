@@ -1,0 +1,8 @@
+body{text-align:center;}
+#header, #footer{height:100px;background-color:lightgrey;}
+#main{width:960px;}
+#main div {display:inline-block;clear:none;float:left;}
+.gutter{width:10px;background-color:red !important;}
+.col1{width:450px;background-color:grey;}
+.col2{width:240px;;background-color:yellow;}
+.col3{width:240px;background-color:cyan;}

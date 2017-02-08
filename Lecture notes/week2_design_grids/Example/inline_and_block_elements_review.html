@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inline and Block Elements</title>
+    <link href="inline_and_block_elements.css" rel="stylesheet">
+</head>
+<body>
+	<header>Inline Versus Block Elements</header>
+	<br/>
+	<hr/>
+	<article>
+		<div class="first-paragraph">Examples of the differences and uses of the inline, block and inline block styles.</div>
+		<h2>Block Example</h2>
+		<div>
+			<div class="body-text">This is a div. By default divs have a block style</div>
+			<p class="body-text">Paragraphs also have a block style</p>
+			<p class="body-text">This is a list of block elements in html:</p>
+			<select>
+				<option>p</option>
+				<option>h1</option>
+				<option>h2</option>
+				<option>h3</option>
+				<option>h4</option>
+				<option>h5</option>
+				<option>h6</option>
+				<option>ul</option>
+				<option>ol</option>
+				<option>dl</option>
+				<option>pre</option>
+				<option>hr</option>
+				<option>address</option>
+				<option>article</option>
+				<option>aside</option>
+				<option>blockquote</option>
+				<option>canvas</option>
+				<option>dd</option>
+				<option>div</option>
+				<option>dl</option>
+				<option>figure</option>
+				<option>figcaption</option>
+				<option>fieldset</option>
+				<option>footer</option>
+				<option>form</option>
+				<option>header</option>
+				<option>hgroup</option>
+				<option>hr</option>
+				<option>nav</option>
+				<option>noscript</option>
+				<option>ol</option>
+				<option>output</option>
+				<option>pre</option>
+				<option>section</option>
+				<option>table</option>
+				<option>tfoot</option>
+				<option>video</option>
+			</select>
+		</div>
+		<h2>Inline Example</h2>
+		<div>
+			<span class="body-text">This is a span.</span>
+			<span class="body-text">Spans have <span class="red">inline</span> styling, <b>which</b> means <i>their</i> height is set by the line-height property, which is a text styling, and do not have a line feed before them</span>
+		</div>
+		<div>Here is a list of inline elements</div>
+		<select>
+			<option>abbr</option>
+			<option>acronym</option>
+			<option>b</option>
+			<option>big</option> 
+			<option>button</option>
+			<option>i</option>
+			<option>tt</option>
+			<option>cite</option>
+			<option>code</option>
+			<option>input></option>
+			<option>label</option>
+			<option>script</option>
+			<option>select</option>
+			<option>small</option>
+			<option>span</option>
+			<option>sub</option>
+			<option>sup</option>
+			<option>textarea</option>
+		</select>
+		<!-- -->
+		<div></div>
+		<div>
+			<div class="inline-block-ex">When block elements, like divs, are styled with the inline-block property they can flow together on one line
+			</div>
+			<div class="inline-block-ex">Because this div has an inline-block style it does not have a line break before it</div>
+		</div>
+		<h2>Inline-Block Example</h2>
+		<div class="inline-block-ex red-border">Inline block divs</div>
+		<div class="inline-block-ex red-border">flow together on one line</div>
+		<h2>Inline-Block and Block Elements Have Different Properties</h2>
+		<span class="">Inline elements have a line-height property but not a height property.</span>
+		<div class="block-ex">Block elements have a height property and a line-height property.</div>
+		<div class="block-ex line-height-ex red-border">When only line-height is set text defaults to the top of the block.</div>
+		<!-- add the v-hidden class to the element below. What happens? -->
+		<!-- add the d-none class to the element below. What happens? -->
+		<div class="block-ex height-ex red-border">When only height is set text defaults to the middle of the block.</div>
+		<div class="block-ex height-ex line-height-ex red-border">Both line-height and height are set on this block.</div>
+
+</body>
+</html>

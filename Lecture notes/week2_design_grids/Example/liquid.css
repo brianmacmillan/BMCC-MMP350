@@ -1,0 +1,36 @@
+header
+{
+	background-color: #ccc;
+	padding: 1em 2em;
+	margin-bottom: 1em;
+}
+
+nav
+{
+	background-color: #ccc;
+	padding: 1em 2em;
+	margin-bottom: 1em;
+}
+footer
+{
+	clear: both;
+	padding: 1em 2em;
+	background-color: #ccc;
+}
+
+
+.col1,.col2,.col3
+{
+	float: left;
+	background-color: #eee;
+	margin-bottom: 1em;
+	margin-left: 3%;
+}
+
+.col1 { width: 48%; }
+.col2 { width: 20%; }
+.col3 { width: 20%; }
+
+.salmon{background-color:salmon;}
+.cyan{background-color:cyan;}
+.yellow{background-color:yellow;}
