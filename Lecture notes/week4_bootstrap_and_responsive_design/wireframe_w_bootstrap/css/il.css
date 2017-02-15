@@ -1,0 +1,19 @@
+.col-xs-12,.col-md-4,.col-sm-6{
+	border:1px solid maroon;
+	border-radius:1em;
+	padding: 10px;
+	display: inline-block;
+
+}
+.col-xs-12,.col-md-4,.col-sm-6:hover{cursor:pointer;}
+
+.container-fluid .row{
+	text-align: center;
+	width:75%;
+	margin:auto;
+}
+
+.left{float:left;width:40%;}
+video{width:200px;}
+.right{float:right;width:60%;}
+

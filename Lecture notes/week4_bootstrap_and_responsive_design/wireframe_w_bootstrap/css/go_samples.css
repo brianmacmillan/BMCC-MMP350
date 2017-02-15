@@ -1,0 +1,64 @@
+
+body {
+    font-family: sans-serif;
+    font-size: 13px;
+}
+p {
+    max-width: 700px;
+}
+p.box {
+    border: 1px solid #bbb;
+    padding: 4px 4px 6px;
+}
+p.warning {
+    background-color: #fcd5cd;
+}
+.diagramContainer {
+    border: 1px solid blue;
+}
+pre {
+    font-size: 9pt;
+}
+.footer {
+    font-size: 10px;
+    text-align: right;
+}
+#sample {
+    margin-left: 140px;
+}
+#menu {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    float: left;
+    margin-right: 5px;
+    overflow: hidden;
+    padding: 4px;
+    white-space: nowrap;
+    width: 120px;
+}
+#sections {
+    font-size: 13px;
+    line-height: 1.3em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a li {
+    color: #0645ad;
+}
+a li:hover, a li:focus {
+    background: #cedff2 none repeat scroll 0 0;
+}
+a li.selected {
+    background: #1e90ff none repeat scroll 0 0;
+    color: white;
+}
+.index {
+    margin-top: 0;
+}

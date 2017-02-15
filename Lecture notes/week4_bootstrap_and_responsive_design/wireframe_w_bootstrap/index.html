@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/il.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <title>MMP 350 </title>
+</head>
+
+<script type="text/javascript">
+/*
+$(document).ready(function(){
+  $('#open-about').click(function(){
+    $('#aboutModal').modal('show');
+  });
+
+  $('section.papers div.masheala').click(function(){
+    $('.modal.masheala').modal('show');
+  });
+
+    $('section.papers div.haley').click(function(){
+    $('.modal.haley').modal('show');
+  });
+
+  $('.open-project').click(function(){
+    $('#projectModal').modal('show');
+  });
+  $("#ul-projects").children("li").children("a").on("click",
+        function (){
+          return;
+          var sTemp=$(this).attr("id");
+          alert("id is-"+sTemp);
+          $("li").removeClass("selected");
+          $(this).addClass("selected");
+          $("#example").attr("src",sTemp);
+          $("#subtitle").html("Example: "+sTemp);
+          console.log("Menu clicked: "+$(this).attr("id"));
+        }
+      );
+});
+*/
+</script>
+<style>
+.invisible{display:none;visibility: hidden;height: 0}
+</style>
+<body>
+
+<header class="container">
+  <h2>MMP 350 Week 2 Grid Example</h2>
+  <p></p>
+  <span class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Course Work
+    <span class="caret"></span></button>
+    <ul id="ul-coursework" class="dropdown-menu">
+      <li><a href="#">Intro to HTML</a></li>
+      <li><a href="#">Cascading Style Sheets</a></li>
+      <li><a href="#">Inline and Block Elements</a></li>
+      <li><a href="#">D3 Force</a></li>
+      <li><a href="#">D3 Labelled Force</a></li>
+      <li><a href="#">D3 Dendogram</a></li>
+      <li><a href="#">D3 Radial Dendogram</a></li>
+      <li><a href="#">D3 Chord w Matrix</a></li>
+      <li><a href="#">D3 Chord w JSON</a></li>
+      <li><a href="#">D3 Chord Andrew</a></li>
+      <li><a href="#">D3 Chord Andrew Bower</a></li>
+      <li><a href="#">D3 Histogram</a></li>
+      <li><a href="#">Google Maps Simple</a></li>
+      <li><a href="#">Google Maps Marker</a></li>
+      <li><a href="#">Google Maps KML</a></li>
+      <li><a href="#">Map Topojson Congress</a></li>
+    </ul>
+  </span>
+  <span class="dropdown">
+    <button class="btn btn-default dropdown-toggle" data-icon="carat-r" data-role="button" type="button" data-toggle="dropdown">Projects
+    <span class="caret"></span></button>
+    <ul id="ul-projects" class="dropdown-menu">
+      <li><a href="#">Box 1</a></li>
+      <li><a href="#">Box 2</a></li>
+      <li><a href="#">Box 3</a></li>
+      <li><a href="#">Box 4</a></li>
+      <li><a href="#">Box 5/<a></li>
+      <li><a href="#">Box 6</a></li>
+      <li><a href="#">Box 7</a></li>
+      <li><a href="#">Box 8</a></li>
+      <li><a href="#">Box 9</a></li>
+    </ul>
+  </span>
+  <span>
+      <button id="open-about" type="button" class="btn btn-default open-modal" data-icon="carat-r" data-role="button"><span class="glyphicon glyphicon-info-sign">&nbsp;</span>About</button>
+  </span>
+  <span>
+      <button type="button" class="btn btn-default open-project" data-icon="carat-r" data-role="button"><span class="">&nbsp;</span>Project Popup</button>
+  </span>
+</header>
+<section class="examples main">
+    <iframe class="invisible">
+    </iframe>
+</section>
+<section class="projects main">
+<!-- INDIVIDUAL PROJECT DOCUMENTS GO HERE -->
+</section>
+<section class="papers main container-fluid">
+  <div class="col-xs-12 col-md-4 col-sm-6 alexandra">Alexandra</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 alyssa">Alyssa</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 aneri">Aneri</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 anna">Anna</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 brinda">Brinda</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 elaine">Elaine</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 haley">Haley and Mikayla</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 leah">Leah</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 masheala">Masheala and Kayla</div>
+  <div class="col-xs-12 col-md-4 col-sm-6 nicholas">Nicholas</div>
+</section>
+<!-- THESE ARE THE POPUPS -->
+<section>
+    <div id="aboutModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p>About the Innovation lab</p>
+                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade masheala">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">My Project</h4>
+                </div>
+                <div class="modal-body">
+                    <p >
+                                            <span class="left"><video class="col2" controls><source src="video/Masheala1.mp4" type="video/mp4"></video><a href="unprovensexworkperceptions.com">Unproven Sexworker Perceptions</a><br/></br/><br/></br/>
+                                                                  
+</span>
+                      <span class="right"><small>The purpose of this research is to understand the extent to which people involved in what is perceived as voluntary sex work experience mental health problems and are exposed to psychological trauma related to their work. This study also aims to compare some common perceptions regarding the morality, background, and lifestyle of voluntary sex workers with the information provided by sex workers themselves.</small></span>
+
+                    </p>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade haley">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>What I Wore When I Was Assaulted </p>
+                    <p>Haley Bogandorff and Mikaela Cunningham</p>
+                    <p class="text-warning"><small>An assault can be physical or verbal. The clothing worn at the time of the assault can result in victim blaming. We created this website to help put an end to this practice, and to give assault survivors an anonymous place to be able to share their stories. The goal is to stop the stigma on all kinds of assaults such as those based on gender, sexual orientation (LGBTQ), religion, domestic relationships, and race.</small></p>
+                    <a href="http://whatiworewheniwasassaulted.com/index.html">What I Wore When I Was Assaulted</a>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projectModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Project Dialog</h4>
+                </div>
+                <div class="modal-body">
+                    <p>My Project</p>
+                    <p class="text-warning"><small>Put video and text here.</small></p>
+                    <video controls><source src="video.mp4" type="video/mp4"></video>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>
